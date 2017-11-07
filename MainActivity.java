@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
     {
         hb.stop();
         hb.prepareAsync();
-        isPlaying = true;
+        isPlaying = false;
     }
 
     private void play(MediaPlayer hb)
