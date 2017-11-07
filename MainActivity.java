@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MediaPlayer hb = MediaPlayer.create(MainActivity.this,R.raw.hb);
+        final MediaPlayer hb = MediaPlayer.create(MainActivity.this,R.raw.hb);
         final Button playPause = (Button) findViewById(R.id.play_pause);
         final Button ResetBtn = (Button) findViewById(R.id.reset);
         playPause.setOnClickListener(new View.OnClickListener()
@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity
     private void stop_reset(MediaPlayer hb)
     {
         hb.stop();
+        hb.prepareAsync();
+        isPlaying = true;
     }
 
     private void play(MediaPlayer hb)
