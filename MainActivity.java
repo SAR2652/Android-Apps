@@ -9,15 +9,19 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity
 {
 
-    boolean isPlaying = false;
+    boolean isPlaying = false; //Set condition for start
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //MediaPlayer Object is declared as final because onClick methods  that access MediaPlayer object are internal
         final MediaPlayer hb = MediaPlayer.create(MainActivity.this,R.raw.hb);
+        //Adds PLAY / PAUSE Button
         final Button playPause = (Button) findViewById(R.id.play_pause);
+        //Adds RESET Button
         final Button ResetBtn = (Button) findViewById(R.id.reset);
+        //Play and Pause Button Event Handling
         playPause.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View view)
@@ -30,10 +34,10 @@ public class MainActivity extends AppCompatActivity
                 {
                     play(hb);
                 }
-                isPlaying = !isPlaying;
+                isPlaying = !isPlaying;  //Change for next option call from say "Start" to "Pause"
             }
         });
-
+        //Reset Button Event Handling
         ResetBtn.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View view)
@@ -46,20 +50,19 @@ public class MainActivity extends AppCompatActivity
 
     private void stop_reset(MediaPlayer hb)
     {
-        hb.stop();
-        hb.prepareAsync();
-        isPlaying = false;
+        hb.stop();                                 //Changes state of MediaPlayer object to 'Stopped"
+        hb.prepareAsync();                         //prepares for Asynchronous startup
+                                                   //(Object status changes from "Stopped' to "Prepared")
+        isPlaying = false;                         //Provides condition for restarting song
     }
 
     private void play(MediaPlayer hb)
-
     {
-        hb.start();
+        hb.start();                                //Changes status of Mediaplayer object from "Idle"/"Prepared" to "Started"
     }
 
     private void pause(MediaPlayer hb)
     {
-        hb.pause();
+        hb.pause();                                //Changes status of MediaPlayer object from "Started" to "Paused"
     }
-
 }
