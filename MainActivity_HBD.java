@@ -10,17 +10,22 @@ public class MainActivity extends AppCompatActivity
 {
 
     boolean isPlaying = false; //Set condition for start
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
         //MediaPlayer Object is declared as final because onClick methods  that access MediaPlayer object are internal
         final MediaPlayer hb = MediaPlayer.create(MainActivity.this,R.raw.hb);
+        
         //Adds PLAY / PAUSE Button
         final Button playPause = (Button) findViewById(R.id.play_pause);
+        
         //Adds RESET Button
         final Button ResetBtn = (Button) findViewById(R.id.reset);
+        
         //Play and Pause Button Event Handling
         playPause.setOnClickListener(new View.OnClickListener()
         {
@@ -37,6 +42,7 @@ public class MainActivity extends AppCompatActivity
                 isPlaying = !isPlaying;  //Change for next option call from say "Start" to "Pause"
             }
         });
+        
         //Reset Button Event Handling
         ResetBtn.setOnClickListener(new View.OnClickListener()
         {
@@ -47,7 +53,7 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-
+    //reset method
     private void stop_reset(MediaPlayer hb)
     {
         hb.stop();                                 //Changes state of MediaPlayer object to 'Stopped"
@@ -55,12 +61,14 @@ public class MainActivity extends AppCompatActivity
                                                    //(Object status changes from "Stopped' to "Prepared")
         isPlaying = false;                         //Provides condition for restarting song
     }
-
+    
+    //play method
     private void play(MediaPlayer hb)
     {
         hb.start();                                //Changes status of Mediaplayer object from "Idle"/"Prepared" to "Started"
     }
-
+    
+    //pause method
     private void pause(MediaPlayer hb)
     {
         hb.pause();                                //Changes status of MediaPlayer object from "Started" to "Paused"
