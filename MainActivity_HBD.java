@@ -51,6 +51,27 @@ public class MainActivity extends AppCompatActivity
                 stop_reset(hb);
             }
         });
+        
+        //Declare Videoview object 
+        final VideoView video = (VideoView) findViewById(R.id.video);
+        
+        //Parsing object for Videoview 
+        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video);
+        
+        //Set Parsing object for VideoView object video
+        video.setVideoURI(uri);
+        
+        //Start Video
+        video.start();
+        
+        //On video completion replay video
+        video.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            public void onCompletion(MediaPlayer mp)
+            {
+                video.start();
+            }
+        });
     }
 
     //reset method
