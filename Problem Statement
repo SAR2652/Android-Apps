@@ -1,0 +1,10 @@
+Problem Statement for this app :-
+         In India, people are affected by various natural disasters like floods, drought , famines, landslides, etc. Most people do not get access to immediate disaster relief which results in loss of lives. Also at this point of time, many people set up temporary relief centers for those who have been affected.
+However, the victims are not aware of the locations of these  relief centers.
+        Thus, we intend to develop an android app that would provide a means to  the people who are willing to help inform the affected people regarding the immediate relief facility they are providing.
+FEATURES OF THE APP:
+1. Offline data already present regarding common places for temporary relief such as temples, mosques, community halls, forts, schools, government Buildings,etc.
+2. People who wish to help can set up their location online as a temporary help centers. This data can be accessed online by the victims and can be downloaded into their android phones.
+3. Facilities available at these relieve centers can be optionally stated by the people who have set this up.
+4. In case of any issues, the people who have set up a relief center can cancel their location.
+5. Also if there are multiple relief centers set up very close too each other (proximity < 100 m), then victims will be guided alternately to these centers.     
